@@ -153,13 +153,21 @@ body {
 
 @media (max-width: 720px) {
   .kk-headline {
-    font-size: 42px !important;
+    font-size: 38px !important;
+    line-height: 1.08 !important;
   }
   .kk-metric-num {
     font-size: 44px !important;
   }
   .kk-section-title {
     font-size: 26px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .kk-headline {
+    font-size: 32px !important;
+    line-height: 1.1 !important;
   }
 }
 
