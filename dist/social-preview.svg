@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Kevin Kirui portfolio preview">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#F7F4ED" />
+      <stop offset="100%" stop-color="#E7EFEB" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="70" y="70" width="1060" height="490" rx="24" fill="#FFFFFF" stroke="#E6E2D7" />
+  <text x="130" y="190" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="600" fill="#0F4C3A">
+    Kevin Kirui
+  </text>
+  <text x="130" y="270" font-family="Georgia, serif" font-size="58" font-weight="500" fill="#0E0E0C">
+    Healthcare Data Engineer
+  </text>
+  <text x="130" y="340" font-family="Georgia, serif" font-size="48" font-style="italic" fill="#0F4C3A">
+    &amp; Clinically Clear Copywriter
+  </text>
+  <text x="130" y="415" font-family="Inter, Arial, sans-serif" font-size="24" fill="#3F3F3A">
+    Workflow support for healthcare, medtech, and analytics teams
+  </text>
+  <text x="130" y="468" font-family="Inter, Arial, sans-serif" font-size="20" fill="#7A7A72">
+    Python • SQL • PostgreSQL • Pandas • ETL • Jupyter • GitHub
+  </text>
+</svg>
