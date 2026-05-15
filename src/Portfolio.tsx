@@ -304,10 +304,10 @@ function SampleCard({ sample, index }: { sample: Sample; index: number }) {
             </p>
           </div>
 
-          {/* Outcome */}
+          {/* Outcomes */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', color: theme.muted, margin: 0 }}>
-              Outcome
+              Outcomes
             </p>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
               {sample.outcomes.map((o, i) => (
@@ -888,7 +888,7 @@ export default function KevinKiruiPortfolio() {
             }}
           >
             <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0, maxWidth: 760 }}>
-              I come from biomedical equipment work, including ICU monitors, imaging systems, and clinical device workflows. That gives me practical exposure to how healthcare operations run in real settings.
+              My background is in biomedical equipment work, including ICU monitors, imaging systems, and clinical device workflows. That gives me practical exposure to how healthcare operations run in real settings.
             </p>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
