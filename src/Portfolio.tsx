@@ -144,6 +144,9 @@ const guidance = [
   'Use simple math where it helps (time saved × caseload = hours back), buyers translate that into staffing.',
 ];
 
+const ctaPrompt = 'Have a similar workflow or reporting challenge?';
+const ctaPromptWithAction = `${ctaPrompt} Let's discuss it.`;
+
 /* ─── Sub-Components ──────────────────────────────────────────── */
 
 function SectionLabel({ num, title }: { num: string; title: string }) {
@@ -753,7 +756,7 @@ export default function KevinKiruiPortfolio() {
           className="kk-fade kk-fade-4"
         >
           <p style={{ fontSize: 15, color: theme.inkSoft, margin: 0, maxWidth: 560, lineHeight: 1.5 }}>
-            Have a similar workflow or reporting challenge? Let&apos;s discuss it.
+            {ctaPromptWithAction}
           </p>
           <a
             href="mailto:kiruikevin388@gmail.com"
@@ -827,7 +830,7 @@ export default function KevinKiruiPortfolio() {
         >
           <div>
             <p style={{ fontFamily: ff.display, fontSize: 20, fontWeight: 500, color: theme.accent, margin: '0 0 6px', letterSpacing: '-.01em' }}>
-              Have a similar workflow or reporting challenge?
+              {ctaPrompt}
             </p>
             <p style={{ fontSize: 14.5, color: theme.inkSoft, margin: 0 }}>
               Let&apos;s discuss it.
@@ -887,9 +890,6 @@ export default function KevinKiruiPortfolio() {
               gap: 20,
             }}
           >
-            <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0, maxWidth: 760 }}>
-              My background is in biomedical equipment work, including ICU monitors, imaging systems, and clinical device workflows. That gives me practical exposure to how healthcare operations run in real settings.
-            </p>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
                 'Healthcare workflow familiarity from hands-on technical environments',
@@ -995,7 +995,7 @@ export default function KevinKiruiPortfolio() {
                 Currently available for freelance and project-based work. I typically respond within one business day.
               </p>
               <p style={{ fontSize: 14.5, color: theme.inkSoft, margin: '10px 0 0', lineHeight: 1.5 }}>
-                Have a similar workflow or reporting challenge? Let&apos;s discuss it.
+                {ctaPromptWithAction}
               </p>
             </div>
           </div>
