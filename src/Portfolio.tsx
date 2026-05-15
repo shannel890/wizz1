@@ -10,8 +10,11 @@ import {
   Users,
   MapPin,
   ChevronDown,
-  ExternalLink,
   ArrowUpRight,
+  GitBranch,
+  Database,
+  Code2,
+  BarChart2,
 } from 'lucide-react';
 
 /* ─── Colors & Theme ─────────────────────────────────────────────── */
@@ -34,7 +37,7 @@ const ff = {
   body: "'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif",
 };
 
-/* ─── Utility Functions ────────────────────────────────────────── */
+/* ─── Utility ─────────────────────────────────────────────────── */
 const pad = (n: number) => String(n).padStart(2, '0');
 
 /* ─── Data ────────────────────────────────────────────────────── */
@@ -43,17 +46,32 @@ const strengths = [
     icon: <Stethoscope size={22} />,
     title: 'Clinical fluency',
     text: 'Hands-on biomedical equipment experience across ICU, radiology, and clinical settings — no translation layer between specs and story.',
+    tooling: null,
+  },
+  {
+    icon: <Database size={22} />,
+    title: 'Data & analytics',
+    text: 'Healthcare workflows modeled from real device and operational data using Python, SQL, and structured datasets — not generic benchmarks.',
+    tooling: 'Python · SQL · PostgreSQL · Pandas · Jupyter',
   },
   {
     icon: <Briefcase size={22} />,
-    title: 'Outcome-driven copy',
+    title: 'Outcome-driven communication',
     text: 'Specs become time saved, workload reduced, ROI measured — language that buyers and clinicians both trust.',
+    tooling: null,
   },
-  {
-    icon: <Users size={22} />,
-    title: 'Audience-first',
-    text: 'Tuned narratives for nurses, radiologists, and clinic managers — same product, three different pitches.',
-  },
+];
+
+const techStack = [
+  { label: 'Python', icon: <Code2 size={13} /> },
+  { label: 'SQL', icon: <Database size={13} /> },
+  { label: 'PostgreSQL', icon: <Database size={13} /> },
+  { label: 'Pandas', icon: <BarChart2 size={13} /> },
+  { label: 'Jupyter', icon: <Code2 size={13} /> },
+  { label: 'CSV / Excel', icon: <BarChart2 size={13} /> },
+  { label: 'ETL pipelines', icon: <Activity size={13} /> },
+  { label: 'Dashboards', icon: <BarChart2 size={13} /> },
+  { label: 'GitHub', icon: <GitBranch size={13} /> },
 ];
 
 const metrics = [
@@ -63,33 +81,59 @@ const metrics = [
   { label: 'Clinic', num: '4–5', unit: 'hrs', caption: 'Reclaimed each day for higher-value care.', icon: <Clock size={14} /> },
 ];
 
-const samples = [
+interface Sample {
+  title: string;
+  subtitle: string;
+  audience: string;
+  before: string;
+  process: string;
+  outcomes: string[];
+}
+
+const samples: Sample[] = [
   {
     title: 'Remote Patient Monitoring',
     subtitle: 'ICU Nurse Workflow',
     audience: 'ICU nurses, critical care managers',
-    paragraphs: [
-      "On a busy night shift, your ICU nurses are managing vasoactive drips, ventilator alarms, families, and endless documentation. Our platform steps in as a quiet extra pair of hands, turning raw device data into clear, prioritized actions so nurses focus on the sickest patients instead of chasing numbers.",
-      "Instead of watching six monitors and guessing who to see first, nurses get a single ranked view of which patients are trending unstable in the next 10–15 minutes. Fewer surprise desaturations, earlier interventions, less reactive running between rooms.",
-      "Automatic documentation of key events cuts charting time and alarm fatigue — measurable improvements in nurse satisfaction and patient safety.",
+    before:
+      'On a busy night shift, ICU nurses are managing vasoactive drips, ventilator alarms, families, and endless documentation — six monitors, no clear priority queue, and no time to guess who needs attention first.',
+    process:
+      'Mapped the raw device data flow to identify where alert logic was generating noise rather than signal. Restructured the priority ranking concept and wrote workflow-first documentation aimed at nurses, not engineers.',
+    outcomes: [
+      'Fewer surprise desaturations',
+      'Earlier interventions — trends visible 10–15 min before critical threshold',
+      'Less reactive running between rooms',
+      'Automatic event documentation reduces charting time and alarm fatigue',
     ],
   },
   {
     title: 'Diagnostic Imaging Workflow',
     subtitle: 'Radiologist Efficiency',
     audience: 'Radiologists, radiology administrators',
-    paragraphs: [
-      "For a radiologist reading 40+ chest CTs per shift, manual hanging, load lag, and app switching waste valuable time. Our Enterprise Imaging Workflow automates hanging protocols, pre-loads studies, and populates report templates.",
-      "Result: 45–60 minutes saved per shift (10–15% more cases read), ~40% less technologist setup time, and reduced repeat imaging through automated quality checks.",
+    before:
+      'A radiologist reading 40+ chest CTs per shift loses valuable time to manual hanging protocols, study load lag, and app switching — friction that compounds over an entire shift.',
+    process:
+      'Analyzed the end-to-end radiologist workflow to pinpoint key friction points. Wrote outcome-focused documentation connecting technical automation features directly to shift-level productivity gains that buyers and managers can quantify.',
+    outcomes: [
+      '45–60 min saved per radiologist per shift',
+      '10–15% more cases read per day',
+      '~40% less technologist setup time',
+      'Reduced repeat imaging via automated quality checks',
     ],
   },
   {
     title: 'Insulin Pump Management',
     subtitle: 'Endocrine Clinic',
     audience: 'Endocrine nurses, diabetes clinic managers',
-    paragraphs: [
-      "Nurses in a busy clinic spend 6–8 hours/day on titration calls for Type 1 pump patients. Auto-correction algorithms handle micro-adjustments continuously, cutting phone calls by 60–70% and returning 4–5 hours per day for education and urgent care.",
-      "In a 3-nurse clinic with 200 active patients, that's 60+ reclaimed hours per month for higher-value, patient-facing work.",
+    before:
+      'In a busy endocrine clinic, nurses spend 6–8 hours per day fielding titration calls from Type 1 pump patients — reactive work that crowds out patient education and urgent care.',
+    process:
+      'Documented the auto-correction algorithm workflow in plain clinical language, building the case for how software-handled micro-adjustments return meaningful nursing hours at scale using simple per-clinic math.',
+    outcomes: [
+      '60–70% fewer titration phone calls per nurse, daily',
+      '4–5 hours reclaimed per nurse per day',
+      '60+ reclaimed hours per month in a 3-nurse, 200-patient clinic',
+      'Nursing time redirected to education and urgent care',
     ],
   },
 ];
@@ -101,7 +145,31 @@ const guidance = [
 ];
 
 /* ─── Sub-Components ──────────────────────────────────────────── */
-function SampleCard({ sample, index }: { sample: typeof samples[0]; index: number }) {
+
+function SectionLabel({ num, title }: { num: string; title: string }) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        fontSize: 12,
+        fontWeight: 600,
+        textTransform: 'uppercase',
+        letterSpacing: '.14em',
+        color: theme.muted,
+        marginBottom: 12,
+      }}
+    >
+      <span style={{ fontFamily: ff.display, fontStyle: 'italic', color: theme.accent, fontSize: 14, fontWeight: 500 }}>
+        {num}
+      </span>{' '}
+      {title}
+    </div>
+  );
+}
+
+function SampleCard({ sample, index }: { sample: Sample; index: number }) {
   const [open, setOpen] = useState(index === 0);
 
   return (
@@ -195,10 +263,10 @@ function SampleCard({ sample, index }: { sample: typeof samples[0]; index: numbe
       {open && (
         <div
           style={{
-            padding: '22px 26px 28px',
+            padding: '24px 26px 32px',
             display: 'flex',
             flexDirection: 'column',
-            gap: 16,
+            gap: 24,
             borderTop: `1px solid ${theme.border}`,
           }}
           className="kk-accord"
@@ -215,19 +283,53 @@ function SampleCard({ sample, index }: { sample: typeof samples[0]; index: numbe
           >
             {sample.subtitle}
           </p>
-          {sample.paragraphs.map((p, i) => (
-            <p
-              key={i}
-              style={{
-                fontSize: 15.5,
-                lineHeight: 1.7,
-                color: theme.inkSoft,
-                margin: 0,
-              }}
-            >
-              {p}
+
+          {/* The problem */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', color: theme.muted, margin: 0 }}>
+              The problem
             </p>
-          ))}
+            <p style={{ fontSize: 15, lineHeight: 1.65, color: theme.inkSoft, margin: 0 }}>
+              {sample.before}
+            </p>
+          </div>
+
+          {/* My approach */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', color: theme.muted, margin: 0 }}>
+              My approach
+            </p>
+            <p style={{ fontSize: 15, lineHeight: 1.65, color: theme.inkSoft, margin: 0 }}>
+              {sample.process}
+            </p>
+          </div>
+
+          {/* Outcomes */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', color: theme.muted, margin: 0 }}>
+              Outcomes
+            </p>
+            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {sample.outcomes.map((o, i) => (
+                <li
+                  key={i}
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 14.5, color: theme.inkSoft, lineHeight: 1.45 }}
+                >
+                  <span
+                    style={{
+                      width: 6,
+                      height: 6,
+                      borderRadius: '50%',
+                      background: theme.accent,
+                      flexShrink: 0,
+                      marginTop: 7,
+                    }}
+                  />
+                  {o}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
@@ -265,6 +367,8 @@ export default function KevinKiruiPortfolio() {
             fontSize: 13,
             color: theme.muted,
             letterSpacing: '.02em',
+            flexWrap: 'wrap',
+            gap: 12,
           }}
           className="kk-fade"
         >
@@ -279,11 +383,31 @@ export default function KevinKiruiPortfolio() {
           >
             Kevin Kirui
           </span>
-          <span>Portfolio &middot; 2026</span>
+          <span style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <a
+              href="https://github.com/shannel890"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: theme.muted, display: 'flex', alignItems: 'center', gap: 5, textDecoration: 'none' }}
+              className="kk-link"
+            >
+              <GitBranch size={15} /> GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/kevin-kirui-ba9593275"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: theme.muted, display: 'flex', alignItems: 'center', gap: 5, textDecoration: 'none' }}
+              className="kk-link"
+            >
+              <Share2 size={15} /> LinkedIn
+            </a>
+          </span>
         </div>
 
         {/* Hero */}
         <header style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+          {/* availability chip */}
           <div
             style={{
               display: 'inline-flex',
@@ -301,27 +425,13 @@ export default function KevinKiruiPortfolio() {
             className="kk-fade kk-fade-1"
           >
             <span style={{ position: 'relative', width: 8, height: 8 }}>
-              <span
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: theme.accent,
-                  borderRadius: '50%',
-                }}
-              />
-              <span
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: theme.accent,
-                  borderRadius: '50%',
-                }}
-                className="kk-pulse"
-              />
+              <span style={{ position: 'absolute', inset: 0, background: theme.accent, borderRadius: '50%' }} />
+              <span style={{ position: 'absolute', inset: 0, background: theme.accent, borderRadius: '50%' }} className="kk-pulse" />
             </span>
-            Available for healthcare copy projects
+            Available for healthcare data and workflow projects
           </div>
 
+          {/* eyebrow */}
           <p
             style={{
               fontSize: 12.5,
@@ -329,12 +439,14 @@ export default function KevinKiruiPortfolio() {
               textTransform: 'uppercase',
               letterSpacing: '.14em',
               color: theme.muted,
+              margin: 0,
             }}
             className="kk-fade kk-fade-2"
           >
-            Biomedical Equipment Technician &amp; Healthcare Copywriter
+            Healthcare Data Engineer &amp; Clinically Clear Copywriter
           </p>
 
+          {/* headline */}
           <h1
             style={{
               fontFamily: ff.display,
@@ -347,12 +459,13 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-headline kk-fade kk-fade-2"
           >
-            From device specs to{' '}
+            Healthcare Data Engineering &amp;{' '}
             <span style={{ fontStyle: 'italic', fontWeight: 400, color: theme.accent }}>
-              clinical outcomes.
+              Clear Clinical Communication.
             </span>
           </h1>
 
+          {/* subheadline */}
           <p
             style={{
               fontSize: 19,
@@ -363,10 +476,23 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-fade kk-fade-3"
           >
-            I translate biomedical features into time savings, fewer alarms, and measurable ROI — copy
-            that nurses, radiologists, and purchasers actually act on.
+            I turn noisy clinical and operational data into cleaner workflows, measurable outcomes, and communication clinicians and buyers actually use.
           </p>
 
+          {/* supporting line */}
+          <p
+            style={{
+              fontSize: 14.5,
+              color: theme.muted,
+              margin: 0,
+              lineHeight: 1.5,
+            }}
+            className="kk-fade kk-fade-3"
+          >
+            For healthcare, medtech, analytics, and workflow-driven teams.
+          </p>
+
+          {/* CTAs */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 8 }} className="kk-fade kk-fade-4">
             <a
               href="mailto:arapkirui513@gmail.com"
@@ -387,12 +513,10 @@ export default function KevinKiruiPortfolio() {
               }}
               className="kk-cta"
             >
-              Request a sample <ArrowUpRight size={16} />
+              Discuss Your Project <ArrowUpRight size={16} />
             </a>
             <a
-              href="https://www.notion.so/RadiFlow_AI_OnePager-359719b5e00b80bbb31cfaddc87de409"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#portfolio"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -410,31 +534,30 @@ export default function KevinKiruiPortfolio() {
               }}
               className="kk-ghost"
             >
-              View RadiFlow one-pager <ExternalLink size={14} />
+              View Portfolio
             </a>
           </div>
+
+          {/* secondary tagline */}
+          <p
+            style={{
+              fontSize: 13,
+              color: theme.muted,
+              margin: 0,
+              fontStyle: 'italic',
+              fontFamily: ff.display,
+            }}
+            className="kk-fade kk-fade-4"
+          >
+            From device specs to clinical outcomes.
+          </p>
         </header>
 
         {/* 01 — Core Strengths */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-3">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  fontSize: 12,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '.14em',
-                  color: theme.muted,
-                  marginBottom: 12,
-                }}
-              >
-                <span style={{ fontFamily: ff.display, fontStyle: 'italic', color: theme.accent, fontSize: 14, fontWeight: 500 }}>01</span> Core
-                Strengths
-              </div>
+              <SectionLabel num="01" title="Core Strengths" />
               <h2
                 style={{
                   fontFamily: ff.display,
@@ -451,26 +574,12 @@ export default function KevinKiruiPortfolio() {
                 Three reasons clinicians read past the first line.
               </h2>
             </div>
-            <p
-              style={{
-                fontSize: 15,
-                color: theme.muted,
-                margin: 0,
-                maxWidth: 360,
-                lineHeight: 1.5,
-              }}
-            >
+            <p style={{ fontSize: 15, color: theme.muted, margin: 0, maxWidth: 360, lineHeight: 1.5 }}>
               What I bring to a brief, beyond the words on the page.
             </p>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: 16,
-            }}
-          >
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
             {strengths.map((st, i) => (
               <div
                 key={i}
@@ -482,7 +591,7 @@ export default function KevinKiruiPortfolio() {
                   display: 'flex',
                   flexDirection: 'column',
                   gap: 18,
-                  minHeight: 240,
+                  minHeight: 220,
                 }}
                 className="kk-card"
               >
@@ -501,66 +610,79 @@ export default function KevinKiruiPortfolio() {
                   >
                     {st.icon}
                   </div>
-                  <span
-                    style={{
-                      fontFamily: ff.display,
-                      fontStyle: 'italic',
-                      fontSize: 14,
-                      color: theme.muted,
-                      fontWeight: 500,
-                    }}
-                  >
+                  <span style={{ fontFamily: ff.display, fontStyle: 'italic', fontSize: 14, color: theme.muted, fontWeight: 500 }}>
                     {pad(i + 1)}
                   </span>
                 </div>
-                <h3
-                  style={{
-                    fontFamily: ff.display,
-                    fontSize: 22,
-                    fontWeight: 500,
-                    margin: 0,
-                    color: theme.ink,
-                    letterSpacing: '-.015em',
-                    lineHeight: 1.2,
-                  }}
-                >
+                <h3 style={{ fontFamily: ff.display, fontSize: 22, fontWeight: 500, margin: 0, color: theme.ink, letterSpacing: '-.015em', lineHeight: 1.2 }}>
                   {st.title}
                 </h3>
-                <p
-                  style={{
-                    fontSize: 14.5,
-                    lineHeight: 1.6,
-                    color: theme.inkSoft,
-                    margin: 0,
-                  }}
-                >
+                <p style={{ fontSize: 14.5, lineHeight: 1.6, color: theme.inkSoft, margin: 0 }}>
                   {st.text}
                 </p>
+                {st.tooling && (
+                  <p style={{ fontSize: 12, color: theme.accent, margin: 0, fontWeight: 600, letterSpacing: '.01em' }}>
+                    {st.tooling}
+                  </p>
+                )}
               </div>
             ))}
           </div>
         </section>
 
+        {/* Tech Stack strip */}
+        <div
+          style={{
+            background: theme.surface,
+            border: `1px solid ${theme.border}`,
+            borderRadius: 18,
+            padding: '24px 28px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 16,
+          }}
+          className="kk-fade kk-fade-3"
+        >
+          <div>
+            <p style={{ fontSize: 11.5, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.14em', color: theme.muted, margin: '0 0 6px' }}>
+              Workflow Tooling
+            </p>
+            <p style={{ fontSize: 13.5, color: theme.inkSoft, margin: 0, lineHeight: 1.45 }}>
+              Modeled from real workflow, device, and healthcare data using Python and SQL where appropriate.
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {techStack.map((t, i) => (
+              <span
+                key={i}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  padding: '6px 14px',
+                  background: theme.accentSoft,
+                  color: theme.accent,
+                  borderRadius: 999,
+                  fontSize: 12.5,
+                  fontWeight: 600,
+                  letterSpacing: '.01em',
+                }}
+              >
+                {t.icon}
+                {t.label}
+              </span>
+            ))}
+          </div>
+          <p style={{ fontSize: 12.5, color: theme.muted, margin: 0, fontStyle: 'italic' }}>
+            I work with de-identified, synthetic, or sample healthcare data and respect privacy-conscious workflow practices.
+          </p>
+        </div>
+
         {/* 02 — Workflow Outcomes */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-3">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  fontSize: 12,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '.14em',
-                  color: theme.muted,
-                  marginBottom: 12,
-                }}
-              >
-                <span style={{ fontFamily: ff.display, fontStyle: 'italic', color: theme.accent, fontSize: 14, fontWeight: 500 }}>02</span> Workflow
-                Outcomes
-              </div>
+              <SectionLabel num="02" title="Workflow Outcomes" />
               <h2
                 style={{
                   fontFamily: ff.display,
@@ -577,26 +699,12 @@ export default function KevinKiruiPortfolio() {
                 The numbers buyers underline.
               </h2>
             </div>
-            <p
-              style={{
-                fontSize: 15,
-                color: theme.muted,
-                margin: 0,
-                maxWidth: 360,
-                lineHeight: 1.5,
-              }}
-            >
+            <p style={{ fontSize: 15, color: theme.muted, margin: 0, maxWidth: 360, lineHeight: 1.5 }}>
               Concrete results pulled from real clinical workflows — not benchmarks.
             </p>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: 14,
-            }}
-          >
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
             {metrics.map((m, i) => (
               <div
                 key={i}
@@ -641,7 +749,10 @@ export default function KevinKiruiPortfolio() {
                   </span>
                   {m.label}
                 </div>
-                <div style={{ fontFamily: ff.display, fontSize: 60, fontWeight: 500, lineHeight: 0.95, letterSpacing: '-.035em', color: theme.ink, margin: 'auto 0 0' }} className="kk-metric-num">
+                <div
+                  style={{ fontFamily: ff.display, fontSize: 60, fontWeight: 500, lineHeight: 0.95, letterSpacing: '-.035em', color: theme.ink, margin: 'auto 0 0' }}
+                  className="kk-metric-num"
+                >
                   {m.num}
                   <span style={{ fontFamily: ff.display, fontStyle: 'italic', fontSize: 26, fontWeight: 400, color: theme.accent, marginLeft: 4, letterSpacing: '-.01em' }}>{m.unit}</span>
                 </div>
@@ -652,25 +763,10 @@ export default function KevinKiruiPortfolio() {
         </section>
 
         {/* 03 — Portfolio Samples */}
-        <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-4">
+        <section id="portfolio" style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-4">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  fontSize: 12,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '.14em',
-                  color: theme.muted,
-                  marginBottom: 12,
-                }}
-              >
-                <span style={{ fontFamily: ff.display, fontStyle: 'italic', color: theme.accent, fontSize: 14, fontWeight: 500 }}>03</span> Portfolio
-                Samples
-              </div>
+              <SectionLabel num="03" title="Portfolio Samples" />
               <h2
                 style={{
                   fontFamily: ff.display,
@@ -684,19 +780,11 @@ export default function KevinKiruiPortfolio() {
                 }}
                 className="kk-section-title"
               >
-                Short writeups, each tuned to a specific clinical audience.
+                Each sample built for a specific clinical audience.
               </h2>
             </div>
-            <p
-              style={{
-                fontSize: 15,
-                color: theme.muted,
-                margin: 0,
-                maxWidth: 360,
-                lineHeight: 1.5,
-              }}
-            >
-              Click any title to expand.
+            <p style={{ fontSize: 15, color: theme.muted, margin: 0, maxWidth: 360, lineHeight: 1.5 }}>
+              Click any title to expand. Each shows the problem, my approach, and outcomes.
             </p>
           </div>
 
@@ -707,26 +795,117 @@ export default function KevinKiruiPortfolio() {
           </div>
         </section>
 
-        {/* 04 — Tone & Messaging */}
+        {/* Mid-page CTA */}
+        <div
+          style={{
+            background: theme.accentSoft,
+            border: `1px solid rgba(15, 76, 58, 0.15)`,
+            borderRadius: 18,
+            padding: '28px 32px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 20,
+          }}
+          className="kk-fade kk-fade-4"
+        >
+          <div>
+            <p style={{ fontFamily: ff.display, fontSize: 20, fontWeight: 500, color: theme.accent, margin: '0 0 6px', letterSpacing: '-.01em' }}>
+              Have a similar workflow?
+            </p>
+            <p style={{ fontSize: 14.5, color: theme.inkSoft, margin: 0 }}>
+              Let's map it out in a 30-minute call.
+            </p>
+          </div>
+          <a
+            href="mailto:arapkirui513@gmail.com"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              background: theme.accent,
+              color: '#fff',
+              borderRadius: 999,
+              padding: '13px 22px',
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: 'none',
+              fontFamily: ff.body,
+              flexShrink: 0,
+            }}
+            className="kk-cta"
+          >
+            Let's talk <ArrowUpRight size={15} />
+          </a>
+        </div>
+
+        {/* 04 — About */}
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-4">
+          <div>
+            <SectionLabel num="04" title="About" />
+            <h2
+              style={{
+                fontFamily: ff.display,
+                fontSize: 34,
+                fontWeight: 500,
+                letterSpacing: '-.02em',
+                margin: 0,
+                color: theme.ink,
+                lineHeight: 1.15,
+                maxWidth: 560,
+              }}
+              className="kk-section-title"
+            >
+              The bridge between clinical systems and clear messaging.
+            </h2>
+          </div>
+
+          <div
+            style={{
+              background: theme.surface,
+              border: `1px solid ${theme.border}`,
+              borderRadius: 18,
+              padding: '32px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 20,
+            }}
+          >
+            <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0 }}>
+              My background is in biomedical equipment — working hands-on with ICU monitors, imaging systems, and clinical device networks. That means I understand how hospitals actually run, not from a marketing brief but from the floor.
+            </p>
+            <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0 }}>
+              Alongside that, I've been building in healthcare data and analytics: structuring clinical datasets, modeling workflows in Python and SQL, and translating device outputs into actionable operational insights. The goal is always the same — turn raw data into something a nurse, radiologist, or clinic manager can act on.
+            </p>
+            <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0 }}>
+              The communication side isn't separate from the technical side. When you can model a workflow in Pandas, you write about it differently — you know what the number means and why it matters to the person reading it.
+            </p>
+            <div
+              style={{
+                borderTop: `1px solid ${theme.border}`,
+                paddingTop: 18,
+                marginTop: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 6,
+              }}
+            >
+              <p style={{ fontSize: 13.5, color: theme.muted, margin: 0, fontWeight: 500 }}>
+                Focused on small-to-medium healthcare data, workflow, documentation, and communication projects.
+              </p>
+              <p style={{ fontSize: 13, color: theme.muted, margin: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <MapPin size={13} /> Nairobi, Kenya &middot; Available for remote work
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 05 — Tone & Messaging */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-4">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  fontSize: 12,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '.14em',
-                  color: theme.muted,
-                  marginBottom: 12,
-                }}
-              >
-                <span style={{ fontFamily: ff.display, fontStyle: 'italic', color: theme.accent, fontSize: 14, fontWeight: 500 }}>04</span> Tone &amp;
-                Messaging
-              </div>
+              <SectionLabel num="05" title="Tone & Messaging" />
               <h2
                 style={{
                   fontFamily: ff.display,
@@ -755,29 +934,13 @@ export default function KevinKiruiPortfolio() {
                   gap: 18,
                   alignItems: 'baseline',
                   padding: '20px 0',
-                  borderBottom: `1px solid ${theme.border}`,
-                  ...(i === guidance.length - 1 ? { borderBottom: 'none' } : {}),
+                  borderBottom: i < guidance.length - 1 ? `1px solid ${theme.border}` : 'none',
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: ff.display,
-                    fontStyle: 'italic',
-                    color: theme.accent,
-                    fontSize: 22,
-                    fontWeight: 500,
-                  }}
-                >
+                <span style={{ fontFamily: ff.display, fontStyle: 'italic', color: theme.accent, fontSize: 22, fontWeight: 500 }}>
                   {pad(i + 1)}
                 </span>
-                <p
-                  style={{
-                    fontSize: 16,
-                    lineHeight: 1.6,
-                    color: theme.inkSoft,
-                    margin: 0,
-                  }}
-                >
+                <p style={{ fontSize: 16, lineHeight: 1.6, color: theme.inkSoft, margin: 0 }}>
                   {item}
                 </p>
               </li>
@@ -785,26 +948,11 @@ export default function KevinKiruiPortfolio() {
           </ul>
         </section>
 
-        {/* 05 — Contact */}
+        {/* 06 — Contact */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-5">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  fontSize: 12,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '.14em',
-                  color: theme.muted,
-                  marginBottom: 12,
-                }}
-              >
-                <span style={{ fontFamily: ff.display, fontStyle: 'italic', color: theme.accent, fontSize: 14, fontWeight: 500 }}>05</span> Get in
-                touch
-              </div>
+              <SectionLabel num="06" title="Get in touch" />
               <h2
                 style={{
                   fontFamily: ff.display,
@@ -820,16 +968,14 @@ export default function KevinKiruiPortfolio() {
               >
                 Briefs, samples, or a quick call — all welcome.
               </h2>
+              <p style={{ fontSize: 14.5, color: theme.muted, margin: '12px 0 0', lineHeight: 1.5 }}>
+                Currently available for freelance and project-based work. I typically respond within one business day.
+              </p>
             </div>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: 12,
-            }}
-          >
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
+            {/* Email */}
             <a
               href="mailto:arapkirui513@gmail.com"
               style={{
@@ -846,39 +992,18 @@ export default function KevinKiruiPortfolio() {
               className="kk-card kk-link"
             >
               <span style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <span
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 10,
-                    background: theme.accentSoft,
-                    color: theme.accent,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}
-                >
+                <span style={{ width: 40, height: 40, borderRadius: 10, background: theme.accentSoft, color: theme.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Mail size={18} />
                 </span>
                 <span>
-                  <div
-                    style={{
-                      fontSize: 11,
-                      color: theme.muted,
-                      textTransform: 'uppercase',
-                      letterSpacing: '.12em',
-                      fontWeight: 600,
-                    }}
-                  >
-                    Email
-                  </div>
-                  <div style={{ fontSize: 14.5, color: theme.ink, fontWeight: 500, marginTop: 3 }}>arapkirui513@gmail.com</div>
+                  <div style={{ fontSize: 11, color: theme.muted, textTransform: 'uppercase', letterSpacing: '.12em', fontWeight: 600 }}>Email</div>
+                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>arapkirui513@gmail.com</div>
                 </span>
               </span>
               <ArrowUpRight size={18} className="kk-arrow" />
             </a>
 
+            {/* LinkedIn */}
             <a
               href="https://linkedin.com/in/kevin-kirui-ba9593275"
               target="_blank"
@@ -897,34 +1022,72 @@ export default function KevinKiruiPortfolio() {
               className="kk-card kk-link"
             >
               <span style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <span
-                  style={{
-                    width: 40,
-                    height: 40,
-                    borderRadius: 10,
-                    background: theme.accentSoft,
-                    color: theme.accent,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}
-                >
+                <span style={{ width: 40, height: 40, borderRadius: 10, background: theme.accentSoft, color: theme.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Share2 size={18} />
                 </span>
                 <span>
-                  <div
-                    style={{
-                      fontSize: 11,
-                      color: theme.muted,
-                      textTransform: 'uppercase',
-                      letterSpacing: '.12em',
-                      fontWeight: 600,
-                    }}
-                  >
-                    LinkedIn
-                  </div>
-                  <div style={{ fontSize: 14.5, color: theme.ink, fontWeight: 500, marginTop: 3 }}>kevin-kirui-ba9593275</div>
+                  <div style={{ fontSize: 11, color: theme.muted, textTransform: 'uppercase', letterSpacing: '.12em', fontWeight: 600 }}>LinkedIn</div>
+                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>kevin-kirui-ba9593275</div>
+                </span>
+              </span>
+              <ArrowUpRight size={18} className="kk-arrow" />
+            </a>
+
+            {/* GitHub */}
+            <a
+              href="https://github.com/shannel890"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '20px 22px',
+                background: theme.surface,
+                border: `1px solid ${theme.border}`,
+                borderRadius: 14,
+                color: theme.ink,
+                textDecoration: 'none',
+              }}
+              className="kk-card kk-link"
+            >
+              <span style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <span style={{ width: 40, height: 40, borderRadius: 10, background: theme.accentSoft, color: theme.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <GitBranch size={18} />
+                </span>
+                <span>
+                  <div style={{ fontSize: 11, color: theme.muted, textTransform: 'uppercase', letterSpacing: '.12em', fontWeight: 600 }}>GitHub</div>
+                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>shannel890</div>
+                </span>
+              </span>
+              <ArrowUpRight size={18} className="kk-arrow" />
+            </a>
+
+            {/* Upwork */}
+            <a
+              href="https://www.upwork.com/freelancers/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '20px 22px',
+                background: theme.surface,
+                border: `1px solid ${theme.border}`,
+                borderRadius: 14,
+                color: theme.ink,
+                textDecoration: 'none',
+              }}
+              className="kk-card kk-link"
+            >
+              <span style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <span style={{ width: 40, height: 40, borderRadius: 10, background: theme.accentSoft, color: theme.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Briefcase size={18} />
+                </span>
+                <span>
+                  <div style={{ fontSize: 11, color: theme.muted, textTransform: 'uppercase', letterSpacing: '.12em', fontWeight: 600 }}>Upwork</div>
+                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>Kevin Kirui</div>
                 </span>
               </span>
               <ArrowUpRight size={18} className="kk-arrow" />
@@ -936,21 +1099,58 @@ export default function KevinKiruiPortfolio() {
         <footer
           style={{
             display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            flexDirection: 'column',
+            gap: 16,
             fontSize: 13,
             color: theme.muted,
             padding: '32px 4px 0',
             borderTop: `1px solid ${theme.border}`,
-            flexWrap: 'wrap',
-            gap: 12,
             marginTop: 8,
           }}
         >
-          <span>&copy; {new Date().getFullYear()} Kevin Kirui &middot; Last updated May 2026</span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <MapPin size={14} /> Nairobi, Kenya
-          </span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <span style={{ fontFamily: ff.display, fontWeight: 600, fontSize: 16, color: theme.ink, letterSpacing: '-.01em' }}>
+                Kevin Kirui
+              </span>
+              <span style={{ fontSize: 12.5 }}>Healthcare Data Engineer &amp; Clinically Clear Copywriter</span>
+            </div>
+            <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <MapPin size={13} /> Nairobi, Kenya
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+            <a href="mailto:arapkirui513@gmail.com" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+              <Mail size={13} /> arapkirui513@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/kevin-kirui-ba9593275" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+              <Share2 size={13} /> LinkedIn
+            </a>
+            <a href="https://github.com/shannel890" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+              <GitBranch size={13} /> GitHub
+            </a>
+            <a href="https://www.upwork.com/freelancers/" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+              <Briefcase size={13} /> Upwork
+            </a>
+          </div>
+
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: 8,
+              paddingTop: 12,
+              borderTop: `1px solid ${theme.border}`,
+            }}
+          >
+            <span>&copy; {new Date().getFullYear()} Kevin Kirui &middot; Last updated May 2026</span>
+            <a href="#" style={{ color: theme.muted, textDecoration: 'none' }} className="kk-link">
+              Privacy &amp; Disclaimer
+            </a>
+          </div>
         </footer>
       </div>
     </div>
