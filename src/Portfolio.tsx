@@ -140,12 +140,12 @@ const samples: Sample[] = [
 
 const guidance = [
   'Start with a one-line clinician pain point, follow with a one-sentence solution, then list 2–3 quantifiable outcomes.',
-  'Lead with the strongest number for scannability, the eye finds digits before words.',
+  'Lead with the strongest number for scannability, as the eye finds digits before words.',
   'Use simple math where it helps (time saved × caseload = hours back), buyers translate that into staffing.',
 ];
 
 const ctaPrompt = 'Have a similar workflow or reporting challenge?';
-const ctaPromptWithAction = `${ctaPrompt} Let's discuss it.`;
+const ctaPromptWithAction = `${ctaPrompt} Let's discuss it`;
 
 /* ─── Sub-Components ──────────────────────────────────────────── */
 
@@ -424,7 +424,7 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-fade kk-fade-1"
           >
-            Healthcare Data Engineering &amp; Clinical Workflow Support
+            Healthcare Data Engineering and Clinical Workflow Support
           </p>
 
           {/* headline */}
@@ -755,9 +755,9 @@ export default function KevinKiruiPortfolio() {
           }}
           className="kk-fade kk-fade-4"
         >
-          <p style={{ fontSize: 15, color: theme.inkSoft, margin: 0, maxWidth: 560, lineHeight: 1.5 }}>
-            {ctaPromptWithAction}
-          </p>
+            <p style={{ fontSize: 15, color: theme.inkSoft, margin: 0, maxWidth: 560, lineHeight: 1.5 }}>
+              {ctaPromptWithAction}
+            </p>
           <a
             href="mailto:kiruikevin388@gmail.com"
             style={{
@@ -995,7 +995,7 @@ export default function KevinKiruiPortfolio() {
                 Currently available for freelance and project-based work. I typically respond within one business day.
               </p>
               <p style={{ fontSize: 14.5, color: theme.inkSoft, margin: '10px 0 0', lineHeight: 1.5 }}>
-                {ctaPromptWithAction}
+                {ctaPromptWithAction}.
               </p>
             </div>
           </div>
