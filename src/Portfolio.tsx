@@ -1095,7 +1095,7 @@ export default function KevinKiruiPortfolio() {
 
             {/* Notion docs */}
             <a
-              href="http://bit.ly/4t4k6ty"
+              href="https://bit.ly/4t4k6ty"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -1163,7 +1163,7 @@ export default function KevinKiruiPortfolio() {
             <a href="https://www.upwork.com/freelancers/~01c51401c74a81c8f4" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
               <Briefcase size={13} /> Upwork
             </a>
-            <a href="http://bit.ly/4t4k6ty" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+            <a href="https://bit.ly/4t4k6ty" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
               <Activity size={13} /> Notion Docs
             </a>
           </div>
