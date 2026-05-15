@@ -1057,7 +1057,7 @@ export default function KevinKiruiPortfolio() {
                 </span>
                 <span>
                   <div style={{ fontSize: 11, color: theme.muted, textTransform: 'uppercase', letterSpacing: '.12em', fontWeight: 600 }}>GitHub</div>
-                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>shannel890</div>
+                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>arapkirui513-hub</div>
                 </span>
               </span>
               <ArrowUpRight size={18} className="kk-arrow" />
