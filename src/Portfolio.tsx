@@ -385,7 +385,7 @@ export default function KevinKiruiPortfolio() {
           </span>
           <span style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <a
-              href="https://github.com/shannel890"
+              href="https://github.com/arapkirui513-hub"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: theme.muted, display: 'flex', alignItems: 'center', gap: 5, textDecoration: 'none' }}
@@ -394,7 +394,7 @@ export default function KevinKiruiPortfolio() {
               <GitBranch size={15} /> GitHub
             </a>
             <a
-              href="https://linkedin.com/in/kevin-kirui-ba9593275"
+              href="https://www.linkedin.com/in/kevin-kirui-ba9593275/"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: theme.muted, display: 'flex', alignItems: 'center', gap: 5, textDecoration: 'none' }}
@@ -495,7 +495,7 @@ export default function KevinKiruiPortfolio() {
           {/* CTAs */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 8 }} className="kk-fade kk-fade-4">
             <a
-              href="mailto:arapkirui513@gmail.com"
+              href="mailto:kiruikevin388@gmail.com"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -819,7 +819,7 @@ export default function KevinKiruiPortfolio() {
             </p>
           </div>
           <a
-            href="mailto:arapkirui513@gmail.com"
+            href="mailto:kiruikevin388@gmail.com"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -977,7 +977,7 @@ export default function KevinKiruiPortfolio() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
             {/* Email */}
             <a
-              href="mailto:arapkirui513@gmail.com"
+              href="mailto:kiruikevin388@gmail.com"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -997,7 +997,7 @@ export default function KevinKiruiPortfolio() {
                 </span>
                 <span>
                   <div style={{ fontSize: 11, color: theme.muted, textTransform: 'uppercase', letterSpacing: '.12em', fontWeight: 600 }}>Email</div>
-                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>arapkirui513@gmail.com</div>
+                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>kiruikevin388@gmail.com</div>
                 </span>
               </span>
               <ArrowUpRight size={18} className="kk-arrow" />
@@ -1005,7 +1005,7 @@ export default function KevinKiruiPortfolio() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com/in/kevin-kirui-ba9593275"
+              href="https://www.linkedin.com/in/kevin-kirui-ba9593275/"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -1035,7 +1035,7 @@ export default function KevinKiruiPortfolio() {
 
             {/* GitHub */}
             <a
-              href="https://github.com/shannel890"
+              href="https://github.com/arapkirui513-hub"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -1065,7 +1065,7 @@ export default function KevinKiruiPortfolio() {
 
             {/* Upwork */}
             <a
-              href="https://www.upwork.com/freelancers/"
+              href="https://www.upwork.com/freelancers/~01c51401c74a81c8f4"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -1088,6 +1088,36 @@ export default function KevinKiruiPortfolio() {
                 <span>
                   <div style={{ fontSize: 11, color: theme.muted, textTransform: 'uppercase', letterSpacing: '.12em', fontWeight: 600 }}>Upwork</div>
                   <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>Kevin Kirui</div>
+                </span>
+              </span>
+              <ArrowUpRight size={18} className="kk-arrow" />
+            </a>
+
+            {/* Notion docs */}
+            <a
+              href="http://bit.ly/4t4k6ty"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '20px 22px',
+                background: theme.surface,
+                border: `1px solid ${theme.border}`,
+                borderRadius: 14,
+                color: theme.ink,
+                textDecoration: 'none',
+              }}
+              className="kk-card kk-link"
+            >
+              <span style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <span style={{ width: 40, height: 40, borderRadius: 10, background: theme.accentSoft, color: theme.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Activity size={18} />
+                </span>
+                <span>
+                  <div style={{ fontSize: 11, color: theme.muted, textTransform: 'uppercase', letterSpacing: '.12em', fontWeight: 600 }}>Notion</div>
+                  <div style={{ fontSize: 14, color: theme.ink, fontWeight: 500, marginTop: 3 }}>Supporting Documentation</div>
                 </span>
               </span>
               <ArrowUpRight size={18} className="kk-arrow" />
@@ -1121,17 +1151,20 @@ export default function KevinKiruiPortfolio() {
           </div>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-            <a href="mailto:arapkirui513@gmail.com" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
-              <Mail size={13} /> arapkirui513@gmail.com
+            <a href="mailto:kiruikevin388@gmail.com" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+              <Mail size={13} /> kiruikevin388@gmail.com
             </a>
-            <a href="https://linkedin.com/in/kevin-kirui-ba9593275" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+            <a href="https://www.linkedin.com/in/kevin-kirui-ba9593275/" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
               <Share2 size={13} /> LinkedIn
             </a>
-            <a href="https://github.com/shannel890" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+            <a href="https://github.com/arapkirui513-hub" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
               <GitBranch size={13} /> GitHub
             </a>
-            <a href="https://www.upwork.com/freelancers/" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+            <a href="https://www.upwork.com/freelancers/~01c51401c74a81c8f4" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
               <Briefcase size={13} /> Upwork
+            </a>
+            <a href="http://bit.ly/4t4k6ty" target="_blank" rel="noopener noreferrer" style={{ color: theme.muted, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }} className="kk-link">
+              <Activity size={13} /> Notion Docs
             </a>
           </div>
 
