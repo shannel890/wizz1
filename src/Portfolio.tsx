@@ -101,7 +101,7 @@ const samples: Sample[] = [
       'Mapped device data flow to separate noisy alerts from high-value signals. Reframed the priority logic and documented a nurse-first response workflow.',
     outcomes: [
       'Fewer surprise desaturations',
-      'Earlier interventions, trends visible 10–15 min before critical thresholds',
+      'Earlier interventions, trends visible 10 to 15 minutes before critical thresholds',
       'Less reactive running between rooms',
       'Automatic event documentation reduces charting time and alarm fatigue',
     ],
