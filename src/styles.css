@@ -152,9 +152,15 @@ body {
 }
 
 @media (max-width: 720px) {
+  .kk-root {
+    padding: 2rem 1rem 3rem !important;
+  }
+  .kk-wrap {
+    gap: 3.25rem !important;
+  }
   .kk-headline {
-    font-size: 38px !important;
-    line-height: 1.08 !important;
+    font-size: 36px !important;
+    line-height: 1.1 !important;
   }
   .kk-metric-num {
     font-size: 44px !important;
@@ -162,12 +168,29 @@ body {
   .kk-section-title {
     font-size: 26px !important;
   }
+  .kk-sample-head {
+    padding: 18px !important;
+  }
 }
 
 @media (max-width: 480px) {
+  .kk-root {
+    padding: 1.5rem 0.9rem 2.5rem !important;
+  }
+  .kk-wrap {
+    gap: 2.75rem !important;
+  }
   .kk-headline {
-    font-size: 32px !important;
-    line-height: 1.1 !important;
+    font-size: 30px !important;
+    line-height: 1.12 !important;
+  }
+  .kk-section-title {
+    font-size: 24px !important;
+  }
+  .kk-cta,
+  .kk-ghost {
+    width: 100%;
+    justify-content: center;
   }
 }
 

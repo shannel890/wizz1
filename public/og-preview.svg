@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Kevin Kirui portfolio preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7F4ED"/>
+      <stop offset="100%" stop-color="#FBF9F3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1040" height="470" rx="28" fill="#FFFFFF" stroke="#E6E2D7" stroke-width="2"/>
+  <text x="140" y="210" fill="#7A7A72" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="2">
+    HEALTHCARE DATA ENGINEERING
+  </text>
+  <text x="140" y="300" fill="#0E0E0C" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="500">
+    Kevin Kirui
+  </text>
+  <text x="140" y="370" fill="#0F4C3A" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-style="italic">
+    Clinically Clear Copywriter
+  </text>
+  <text x="140" y="450" fill="#3F3F3A" font-family="Inter, Arial, sans-serif" font-size="29">
+    Workflow support for healthcare, medtech, and analytics teams
+  </text>
+</svg>

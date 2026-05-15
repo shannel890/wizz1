@@ -45,19 +45,19 @@ const strengths = [
   {
     icon: <Stethoscope size={22} />,
     title: 'Clinical fluency',
-    text: 'Hands-on biomedical equipment experience across ICU, radiology, and clinical settings — no translation layer between specs and story.',
+    text: 'Hands-on biomedical equipment experience across ICU, radiology, and clinical settings, no translation layer between specs and story.',
     tooling: null,
   },
   {
     icon: <Database size={22} />,
     title: 'Data & analytics',
-    text: 'Healthcare workflows modeled from real device and operational data using Python, SQL, and structured datasets — not generic benchmarks.',
+    text: 'Healthcare workflows modeled from real device and operational data using Python, SQL, and structured datasets, not generic benchmarks.',
     tooling: 'Python · SQL · PostgreSQL · Pandas · Jupyter',
   },
   {
     icon: <Briefcase size={22} />,
     title: 'Outcome-driven communication',
-    text: 'Specs become time saved, workload reduced, ROI measured — language that buyers and clinicians both trust.',
+    text: 'Specs become time saved, workload reduced, and ROI measured, language that buyers and clinicians both trust.',
     tooling: null,
   },
 ];
@@ -68,8 +68,8 @@ const techStack = [
   { label: 'PostgreSQL', icon: <Database size={13} /> },
   { label: 'Pandas', icon: <BarChart2 size={13} /> },
   { label: 'Jupyter', icon: <Code2 size={13} /> },
-  { label: 'CSV / Excel', icon: <BarChart2 size={13} /> },
-  { label: 'ETL pipelines', icon: <Activity size={13} /> },
+  { label: 'CSV/Excel workflows', icon: <BarChart2 size={13} /> },
+  { label: 'ETL', icon: <Activity size={13} /> },
   { label: 'Dashboards', icon: <BarChart2 size={13} /> },
   { label: 'GitHub', icon: <GitBranch size={13} /> },
 ];
@@ -96,12 +96,12 @@ const samples: Sample[] = [
     subtitle: 'ICU Nurse Workflow',
     audience: 'ICU nurses, critical care managers',
     before:
-      'On a busy night shift, ICU nurses are managing vasoactive drips, ventilator alarms, families, and endless documentation — six monitors, no clear priority queue, and no time to guess who needs attention first.',
+      'ICU night-shift nurses were juggling vasoactive drips, ventilator alarms, family questions, and heavy charting. They watched multiple feeds without a clear priority queue.',
     process:
-      'Mapped the raw device data flow to identify where alert logic was generating noise rather than signal. Restructured the priority ranking concept and wrote workflow-first documentation aimed at nurses, not engineers.',
+      'Mapped device data flow to separate noisy alerts from high-value signals. Reframed the priority logic and documented a nurse-first response workflow.',
     outcomes: [
       'Fewer surprise desaturations',
-      'Earlier interventions — trends visible 10–15 min before critical threshold',
+      'Earlier interventions, trends visible 10–15 min before critical thresholds',
       'Less reactive running between rooms',
       'Automatic event documentation reduces charting time and alarm fatigue',
     ],
@@ -111,9 +111,9 @@ const samples: Sample[] = [
     subtitle: 'Radiologist Efficiency',
     audience: 'Radiologists, radiology administrators',
     before:
-      'A radiologist reading 40+ chest CTs per shift loses valuable time to manual hanging protocols, study load lag, and app switching — friction that compounds over an entire shift.',
+      'Radiologists reading 40+ chest CTs per shift were losing time to manual hanging protocols, study load lag, and frequent app switching.',
     process:
-      'Analyzed the end-to-end radiologist workflow to pinpoint key friction points. Wrote outcome-focused documentation connecting technical automation features directly to shift-level productivity gains that buyers and managers can quantify.',
+      'Analyzed the end-to-end reading flow to identify bottlenecks. Wrote outcome-focused documentation that linked automation features to measurable shift-level gains.',
     outcomes: [
       '45–60 min saved per radiologist per shift',
       '10–15% more cases read per day',
@@ -126,9 +126,9 @@ const samples: Sample[] = [
     subtitle: 'Endocrine Clinic',
     audience: 'Endocrine nurses, diabetes clinic managers',
     before:
-      'In a busy endocrine clinic, nurses spend 6–8 hours per day fielding titration calls from Type 1 pump patients — reactive work that crowds out patient education and urgent care.',
+      'In a busy endocrine clinic, nurses were spending 6–8 hours daily on titration calls from Type 1 pump patients, reducing time for patient education and urgent care.',
     process:
-      'Documented the auto-correction algorithm workflow in plain clinical language, building the case for how software-handled micro-adjustments return meaningful nursing hours at scale using simple per-clinic math.',
+      'Documented the auto-correction workflow in clear clinical language. Quantified how software-managed micro-adjustments return nursing hours at clinic scale.',
     outcomes: [
       '60–70% fewer titration phone calls per nurse, daily',
       '4–5 hours reclaimed per nurse per day',
@@ -140,8 +140,8 @@ const samples: Sample[] = [
 
 const guidance = [
   'Start with a one-line clinician pain point, follow with a one-sentence solution, then list 2–3 quantifiable outcomes.',
-  'Lead with the strongest number for scannability — the eye finds digits before words.',
-  'Use simple math where it helps (time saved × caseload = hours back) — buyers translate that into staffing.',
+  'Lead with the strongest number for scannability, the eye finds digits before words.',
+  'Use simple math where it helps (time saved × caseload = hours back), buyers translate that into staffing.',
 ];
 
 /* ─── Sub-Components ──────────────────────────────────────────── */
@@ -284,30 +284,30 @@ function SampleCard({ sample, index }: { sample: Sample; index: number }) {
             {sample.subtitle}
           </p>
 
-          {/* The problem */}
+          {/* Before */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', color: theme.muted, margin: 0 }}>
-              The problem
+              Before
             </p>
             <p style={{ fontSize: 15, lineHeight: 1.65, color: theme.inkSoft, margin: 0 }}>
               {sample.before}
             </p>
           </div>
 
-          {/* My approach */}
+          {/* Process */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', color: theme.muted, margin: 0 }}>
-              My approach
+              Process
             </p>
             <p style={{ fontSize: 15, lineHeight: 1.65, color: theme.inkSoft, margin: 0 }}>
               {sample.process}
             </p>
           </div>
 
-          {/* Outcomes */}
+          {/* Outcome */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.12em', color: theme.muted, margin: 0 }}>
-              Outcomes
+              Outcome
             </p>
             <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
               {sample.outcomes.map((o, i) => (
@@ -340,6 +340,7 @@ function SampleCard({ sample, index }: { sample: Sample; index: number }) {
 export default function KevinKiruiPortfolio() {
   return (
     <div
+      className="kk-root"
       style={{
         fontFamily: ff.body,
         background: theme.bg,
@@ -350,6 +351,7 @@ export default function KevinKiruiPortfolio() {
       }}
     >
       <div
+        className="kk-wrap"
         style={{
           maxWidth: 1040,
           margin: '0 auto',
@@ -407,30 +409,6 @@ export default function KevinKiruiPortfolio() {
 
         {/* Hero */}
         <header style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-          {/* availability chip */}
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 10,
-              alignSelf: 'flex-start',
-              padding: '7px 16px 7px 12px',
-              background: theme.accentSoft,
-              color: theme.accent,
-              borderRadius: 999,
-              fontSize: 12.5,
-              fontWeight: 600,
-              letterSpacing: '.02em',
-            }}
-            className="kk-fade kk-fade-1"
-          >
-            <span style={{ position: 'relative', width: 8, height: 8 }}>
-              <span style={{ position: 'absolute', inset: 0, background: theme.accent, borderRadius: '50%' }} />
-              <span style={{ position: 'absolute', inset: 0, background: theme.accent, borderRadius: '50%' }} className="kk-pulse" />
-            </span>
-            Available for healthcare data and workflow projects
-          </div>
-
           {/* eyebrow */}
           <p
             style={{
@@ -441,9 +419,9 @@ export default function KevinKiruiPortfolio() {
               color: theme.muted,
               margin: 0,
             }}
-            className="kk-fade kk-fade-2"
+            className="kk-fade kk-fade-1"
           >
-            Healthcare Data Engineer &amp; Clinically Clear Copywriter
+            Healthcare Data Engineering &amp; Clinical Workflow Support
           </p>
 
           {/* headline */}
@@ -459,10 +437,7 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-headline kk-fade kk-fade-2"
           >
-            Healthcare Data Engineering &amp;{' '}
-            <span style={{ fontStyle: 'italic', fontWeight: 400, color: theme.accent }}>
-              Clear Clinical Communication.
-            </span>
+            Healthcare Data Engineer &amp; Clinically Clear Copywriter
           </h1>
 
           {/* subheadline */}
@@ -476,7 +451,7 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-fade kk-fade-3"
           >
-            I turn noisy clinical and operational data into cleaner workflows, measurable outcomes, and communication clinicians and buyers actually use.
+            I help healthcare and data-driven teams organize messy workflows, structure clinical data, and communicate clearly.
           </p>
 
           {/* supporting line */}
@@ -504,12 +479,13 @@ export default function KevinKiruiPortfolio() {
                 color: '#fff',
                 border: 'none',
                 borderRadius: 999,
-                padding: '14px 24px',
-                fontSize: 14.5,
+                padding: '15px 26px',
+                fontSize: 15,
                 fontWeight: 600,
                 cursor: 'pointer',
                 textDecoration: 'none',
                 fontFamily: ff.body,
+                boxShadow: '0 14px 30px -14px rgba(15, 76, 58, 0.65)',
               }}
               className="kk-cta"
             >
@@ -549,11 +525,11 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-fade kk-fade-4"
           >
-            From device specs to clinical outcomes.
+            Clinical understanding, operational thinking, and clear communication in one workflow-focused practice.
           </p>
         </header>
 
-        {/* 01 — Core Strengths */}
+        {/* 01 - Core Strengths */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-3">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
@@ -645,10 +621,10 @@ export default function KevinKiruiPortfolio() {
         >
           <div>
             <p style={{ fontSize: 11.5, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.14em', color: theme.muted, margin: '0 0 6px' }}>
-              Workflow Tooling
+              Workflow Tooling / Tech Stack
             </p>
             <p style={{ fontSize: 13.5, color: theme.inkSoft, margin: 0, lineHeight: 1.45 }}>
-              Modeled from real workflow, device, and healthcare data using Python and SQL where appropriate.
+              Workflow tooling for structured healthcare, reporting, and operational data.
             </p>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -678,7 +654,7 @@ export default function KevinKiruiPortfolio() {
           </p>
         </div>
 
-        {/* 02 — Workflow Outcomes */}
+        {/* 02 - Workflow Outcomes */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-3">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
@@ -700,7 +676,7 @@ export default function KevinKiruiPortfolio() {
               </h2>
             </div>
             <p style={{ fontSize: 15, color: theme.muted, margin: 0, maxWidth: 360, lineHeight: 1.5 }}>
-              Concrete results pulled from real clinical workflows — not benchmarks.
+              Concrete results pulled from real clinical workflows, not benchmarks.
             </p>
           </div>
 
@@ -762,7 +738,46 @@ export default function KevinKiruiPortfolio() {
           </div>
         </section>
 
-        {/* 03 — Portfolio Samples */}
+        <div
+          style={{
+            background: theme.accentSoft,
+            border: `1px solid rgba(15, 76, 58, 0.15)`,
+            borderRadius: 18,
+            padding: '24px 28px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 16,
+          }}
+          className="kk-fade kk-fade-4"
+        >
+          <p style={{ fontSize: 15, color: theme.inkSoft, margin: 0, maxWidth: 560, lineHeight: 1.5 }}>
+            Have a similar workflow or reporting challenge? Let&apos;s discuss it.
+          </p>
+          <a
+            href="mailto:kiruikevin388@gmail.com"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              background: theme.accent,
+              color: '#fff',
+              borderRadius: 999,
+              padding: '12px 20px',
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: 'none',
+              fontFamily: ff.body,
+              flexShrink: 0,
+            }}
+            className="kk-cta"
+          >
+            Discuss Your Project <ArrowUpRight size={15} />
+          </a>
+        </div>
+
+        {/* 03 - Portfolio Samples */}
         <section id="portfolio" style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-4">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
@@ -812,10 +827,10 @@ export default function KevinKiruiPortfolio() {
         >
           <div>
             <p style={{ fontFamily: ff.display, fontSize: 20, fontWeight: 500, color: theme.accent, margin: '0 0 6px', letterSpacing: '-.01em' }}>
-              Have a similar workflow?
+              Have a similar workflow or reporting challenge?
             </p>
             <p style={{ fontSize: 14.5, color: theme.inkSoft, margin: 0 }}>
-              Let's map it out in a 30-minute call.
+              Let&apos;s discuss it.
             </p>
           </div>
           <a
@@ -836,11 +851,11 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-cta"
           >
-            Let's talk <ArrowUpRight size={15} />
+            Discuss Your Project <ArrowUpRight size={15} />
           </a>
         </div>
 
-        {/* 04 — About */}
+        {/* 04 - About */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-4">
           <div>
             <SectionLabel num="04" title="About" />
@@ -872,15 +887,23 @@ export default function KevinKiruiPortfolio() {
               gap: 20,
             }}
           >
-            <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0 }}>
-              My background is in biomedical equipment — working hands-on with ICU monitors, imaging systems, and clinical device networks. That means I understand how hospitals actually run, not from a marketing brief but from the floor.
+            <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0, maxWidth: 760 }}>
+              I come from biomedical equipment work, including ICU monitors, imaging systems, and clinical device workflows. That gives me practical exposure to how healthcare operations run in real settings.
             </p>
-            <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0 }}>
-              Alongside that, I've been building in healthcare data and analytics: structuring clinical datasets, modeling workflows in Python and SQL, and translating device outputs into actionable operational insights. The goal is always the same — turn raw data into something a nurse, radiologist, or clinic manager can act on.
-            </p>
-            <p style={{ fontSize: 16, lineHeight: 1.7, color: theme.inkSoft, margin: 0 }}>
-              The communication side isn't separate from the technical side. When you can model a workflow in Pandas, you write about it differently — you know what the number means and why it matters to the person reading it.
-            </p>
+            <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {[
+                'Healthcare workflow familiarity from hands-on technical environments',
+                'Growing focus on Python, SQL, and structured data workflows',
+                'Experience organizing reporting logic for clearer operational decisions',
+                'Documentation and messaging that stay accurate to technical reality',
+                'Ability to bridge technical analysis and clinical interpretation',
+              ].map((item, i) => (
+                <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 15, lineHeight: 1.55, color: theme.inkSoft }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: theme.accent, flexShrink: 0, marginTop: 9 }} />
+                  {item}
+                </li>
+              ))}
+            </ul>
             <div
               style={{
                 borderTop: `1px solid ${theme.border}`,
@@ -901,7 +924,7 @@ export default function KevinKiruiPortfolio() {
           </div>
         </section>
 
-        {/* 05 — Tone & Messaging */}
+        {/* 05 - Tone & Messaging */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-4">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
@@ -948,7 +971,7 @@ export default function KevinKiruiPortfolio() {
           </ul>
         </section>
 
-        {/* 06 — Contact */}
+        {/* 06 - Contact */}
         <section style={{ display: 'flex', flexDirection: 'column', gap: 28 }} className="kk-fade kk-fade-5">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap', paddingBottom: 8 }}>
             <div>
@@ -966,10 +989,13 @@ export default function KevinKiruiPortfolio() {
                 }}
                 className="kk-section-title"
               >
-                Briefs, samples, or a quick call — all welcome.
+                Briefs, samples, or a quick call, all welcome.
               </h2>
               <p style={{ fontSize: 14.5, color: theme.muted, margin: '12px 0 0', lineHeight: 1.5 }}>
                 Currently available for freelance and project-based work. I typically respond within one business day.
+              </p>
+              <p style={{ fontSize: 14.5, color: theme.inkSoft, margin: '10px 0 0', lineHeight: 1.5 }}>
+                Have a similar workflow or reporting challenge? Let&apos;s discuss it.
               </p>
             </div>
           </div>
