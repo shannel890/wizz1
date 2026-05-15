@@ -45,19 +45,19 @@ const strengths = [
   {
     icon: <Stethoscope size={22} />,
     title: 'Clinical fluency',
-    text: 'Hands-on biomedical equipment exposure across ICU, radiology, and clinical settings, with no translation gap between specs and story.',
+    text: 'Hands-on biomedical equipment exposure across ICU, radiology, and clinical settings, so there is no translation gap between device specs, operational data, and day-to-day workflow.',
     tooling: null,
   },
   {
     icon: <Database size={22} />,
     title: 'Data & analytics',
-    text: 'Healthcare workflows modeled from real device and operational data using Python, SQL, and structured datasets, not generic benchmarks.',
+    text: 'Clinical workflows modeled from real device and operational data using Python and SQL, not generic benchmarks or hypothetical diagrams.',
     tooling: 'Python · SQL · PostgreSQL · Pandas · Jupyter',
   },
   {
     icon: <Briefcase size={22} />,
     title: 'Outcome-driven communication',
-    text: 'Specs become time saved, workload reduced, and ROI measured, in language buyers and clinicians can trust.',
+    text: 'Data models and technical workflows translated into time saved, workload reduced, and clearer operational decisions in language clinicians and buyers can actually use.',
     tooling: null,
   },
 ];
@@ -97,7 +97,7 @@ const samples: Sample[] = [
     before:
       'ICU nurses were balancing multiple monitors and alerts, with no clear priority sequence during busy shifts.',
     process:
-      'Mapped device data flow, reduced noisy alert conditions, and restructured priority logic. Wrote workflow-first documentation for nursing teams.',
+      'Mapped device data flow, reduced noisy alert conditions, and restructured priority logic, then created workflow-first documentation and quick-reference guides for nursing teams.',
     outcomes: [
       'Fewer workflow bottlenecks during high-alert periods',
       'Earlier interventions from trends visible 10–15 minutes sooner',
@@ -112,7 +112,7 @@ const samples: Sample[] = [
     before:
       'Radiologists reading 40+ chest CTs per shift were losing time to manual hanging protocols, lag, and repeated app switching.',
     process:
-      'Analyzed the full reading workflow, documented key friction points, and translated automation features into operational language for buyers and managers.',
+      'Restructured reporting workflow logic and clarified turnaround documentation so radiologists and operations teams worked from the same operational view.',
     outcomes: [
       '45–60 minutes saved per radiologist per shift',
       'Cleaner reporting of productivity gains at team level',
@@ -127,7 +127,7 @@ const samples: Sample[] = [
     before:
       'Endocrine nurses were spending 6–8 hours daily on titration calls, reducing time for patient education and urgent care.',
     process:
-      'Documented auto-correction workflows in clear clinical language and quantified reclaimed nursing time with simple per-clinic calculations.',
+      'Rebuilt the titration tracking workflow and documented the updated process in a format ward staff could follow without additional training.',
     outcomes: [
       '60–70% fewer titration phone calls per nurse, daily',
       '4–5 hours reclaimed per nurse per day',
@@ -459,7 +459,7 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-headline kk-fade kk-fade-2"
           >
-            Healthcare Data Engineer &amp; Clinically Clear Copywriter
+            I help hospital and health-tech teams turn messy clinical workflows and scattered data into clear systems and documentation clinicians actually use.
           </h1>
 
           {/* subheadline */}
@@ -473,7 +473,7 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-fade kk-fade-3"
           >
-            I help healthcare and data-driven teams organize messy workflows, structure clinical data, and communicate clearly.
+            Clinically clear guides, workflows, and data models that clinicians can read once and use on the next shift.
           </p>
 
           {/* supporting line */}
@@ -487,7 +487,24 @@ export default function KevinKiruiPortfolio() {
             }}
             className="kk-fade kk-fade-3"
           >
-            For healthcare, medtech, analytics, and workflow-driven teams.
+            For hospital and clinic operations, nursing and ICU leads, and quality improvement teams.
+          </p>
+
+          {/* health-tech supporting line */}
+          <p
+            style={{
+              fontSize: 14.5,
+              color: theme.muted,
+              margin: 0,
+              lineHeight: 1.5,
+              maxWidth: 620,
+            }}
+            className="kk-fade kk-fade-3"
+          >
+            Also supporting health-tech teams building or documenting real clinical workflows.{' '}
+            <a href="#portfolio" style={{ color: theme.accent, textDecoration: 'none', fontWeight: 600 }} className="kk-link">
+              &#8594; See workflow and documentation examples
+            </a>
           </p>
 
           {/* CTAs */}
@@ -600,7 +617,7 @@ export default function KevinKiruiPortfolio() {
               </h2>
             </div>
             <p style={{ fontSize: 15, color: theme.muted, margin: 0, maxWidth: 360, lineHeight: 1.5 }}>
-              What I bring to a brief, beyond the words on the page.
+              What I bring to a workflow project, from data model to frontline communication.
             </p>
           </div>
 
@@ -718,12 +735,9 @@ export default function KevinKiruiPortfolio() {
                 }}
                 className="kk-section-title"
               >
-                The numbers buyers underline.
+                Workflow outcomes from ICU, radiology, endocrine, and clinic projects.
               </h2>
             </div>
-            <p style={{ fontSize: 15, color: theme.muted, margin: 0, maxWidth: 360, lineHeight: 1.5 }}>
-              Concrete results pulled from real clinical workflows, not benchmarks.
-            </p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
@@ -782,14 +796,14 @@ export default function KevinKiruiPortfolio() {
               </div>
             ))}
           </div>
+
+          <p style={{ fontSize: 13.5, color: theme.muted, margin: 0, lineHeight: 1.5 }}>
+            Each metric comes from restructuring workflow logic, operational data flow, and clinician-facing documentation, not vendor benchmark claims.
+          </p>
         </section>
 
         <div
           style={{
-            background: theme.accentSoft,
-            border: `1px solid rgba(15, 76, 58, 0.15)`,
-            borderRadius: 18,
-            padding: '24px 26px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -934,7 +948,7 @@ export default function KevinKiruiPortfolio() {
             }}
           >
             <p style={{ fontSize: 16, lineHeight: 1.65, color: theme.inkSoft, margin: 0, maxWidth: 780 }}>
-              I started in biomedical equipment and clinical systems, working close to ICU monitors, imaging workflows, and day-to-day healthcare operations.
+              Biomedical engineering background turned healthcare workflow and data specialist, helping hospital operations and health-tech teams reduce alert fatigue, reporting friction, and documentation overload.
             </p>
             <ul style={{ margin: 0, paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 10 }}>
               <li style={{ fontSize: 15.5, lineHeight: 1.6, color: theme.inkSoft }}>
@@ -961,7 +975,7 @@ export default function KevinKiruiPortfolio() {
               }}
             >
               <p style={{ fontSize: 13.5, color: theme.muted, margin: 0, fontWeight: 500 }}>
-                Focused on small-to-medium healthcare data, workflow, documentation, and communication projects.
+                Focused on small-to-mid-size hospitals, clinics, and health-tech teams operating inside real clinical workflows.
               </p>
               <p style={{ fontSize: 13, color: theme.muted, margin: 0, display: 'flex', alignItems: 'center', gap: 6 }}>
                 <MapPin size={13} /> Nairobi, Kenya &middot; Available for remote work
@@ -988,10 +1002,14 @@ export default function KevinKiruiPortfolio() {
                 }}
                 className="kk-section-title"
               >
-                How I structure every piece.
+                Clinically clear communication, not marketing jargon.
               </h2>
             </div>
           </div>
+
+          <p style={{ fontSize: 15, lineHeight: 1.6, color: theme.inkSoft, margin: 0, maxWidth: 700 }}>
+            Device specs and operational data become workflow guides, checklists, and implementation documentation clinicians can actually use during a shift.
+          </p>
 
           <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column' }}>
             {guidance.map((item, i) => (
@@ -1035,17 +1053,13 @@ export default function KevinKiruiPortfolio() {
                 }}
                 className="kk-section-title"
               >
-                Briefs, samples, or a quick call, all welcome.
+                Tell me about your workflow problem
               </h2>
               <p style={{ fontSize: 14.5, color: theme.muted, margin: '12px 0 0', lineHeight: 1.5 }}>
-                Currently available for freelance and project-based work. I typically respond within one business day.
+                Send a short description of the workflow, reporting, data, or documentation challenge, and I&apos;ll tell you whether I can help and how.
               </p>
             </div>
           </div>
-
-          <p style={{ fontSize: 14.5, color: theme.inkSoft, margin: 0, lineHeight: 1.5, maxWidth: 640 }}>
-            Have a similar workflow or reporting challenge? Let&apos;s discuss it.
-          </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
             {/* Email */}
@@ -1216,7 +1230,7 @@ export default function KevinKiruiPortfolio() {
               <span style={{ fontFamily: ff.display, fontWeight: 600, fontSize: 16, color: theme.ink, letterSpacing: '-.01em' }}>
                 Kevin Kirui
               </span>
-              <span style={{ fontSize: 12.5 }}>Healthcare Data Engineer &amp; Clinically Clear Copywriter</span>
+              <span style={{ fontSize: 12.5 }}>Healthcare Data Engineer and clinically clear communicator for frontline workflows.</span>
             </div>
             <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
               <MapPin size={13} /> Nairobi, Kenya
