@@ -833,7 +833,7 @@ export default function KevinKiruiPortfolio() {
               {ctaPrompt}
             </p>
             <p style={{ fontSize: 14.5, color: theme.inkSoft, margin: 0 }}>
-              Let&apos;s discuss it.
+              Let's discuss it.
             </p>
           </div>
           <a
